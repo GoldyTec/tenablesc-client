@@ -59,7 +59,7 @@ type RepoOrganization struct {
 	GroupAssign string `json:"groupAssign,omitempty"`
 }
 
-//input and output formats are different.  Handle the differences internally
+// input and output formats are different.  Handle the differences internally
 type repoInternal struct {
 	RepoBaseFields
 	TypeFields json.RawMessage `json:"typeFields,omitempty"`
@@ -67,7 +67,7 @@ type repoInternal struct {
 
 func (r repoInternal) toExternal() (*Repository, error) {
 	if r.Type != "Local" {
-		return nil, fmt.Errorf("Repo type %s is not supported.  Only local is", r.Type)
+		return nil, fmt.Errorf("repo type %s is not supported.  Only local is", r.Type)
 	}
 
 	repo := &Repository{
